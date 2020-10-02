@@ -31,7 +31,7 @@ LOCAL_SRC_FILES := shared/libcurl.a
 include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := PPUtils
+LOCAL_MODULE := PPUtils_0_1_0
 LOCAL_SRC_FILES += $(call rwildcard,src/,*.cpp)
 LOCAL_SRC_FILES += $(call rwildcard,extern/beatsaber-hook/src/inline-hook,*.cpp)
 LOCAL_SRC_FILES += $(call rwildcard,extern/beatsaber-hook/src/inline-hook,*.c)	

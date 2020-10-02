@@ -1,4 +1,4 @@
-#include "PPUtils.hpp"
+#include "../shared/PPUtils.hpp"
 
 std::map<std::string, RawPPData> PPData;
 
@@ -72,7 +72,13 @@ void PPDownloader_WebRequest()
 		//VSCode doesnt like rapidjson so you can ignore the "errors"
 		for (auto itr = d.MemberBegin(); itr != d.MemberEnd(); ++itr)
 		{
+			getLogger().debug(itr->name.GetString() + std::string(" is being initialized"));
 			RawPPData data = DeserializeIntoRawPPData(itr->value);
+			getLogger().debug(itr->name.GetString() + std::to_string(data._Easy_SoloStandard));
+			getLogger().debug(itr->name.GetString() + std::to_string(data._Normal_SoloStandard));
+			getLogger().debug(itr->name.GetString() + std::to_string(data._Hard_SoloStandard));
+			getLogger().debug(itr->name.GetString() + std::to_string(data._Expert_SoloStandard));
+			getLogger().debug(itr->name.GetString() + std::to_string(data._ExpertPlus_SoloStandard));
 			PPData.insert({itr->name.GetString(), data});
 		}
 		getLogger().debug(std::to_string(PPData.size()));	

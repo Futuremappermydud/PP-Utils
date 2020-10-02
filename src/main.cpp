@@ -1,5 +1,5 @@
-#include "../include/Main.hpp"
-#include "../include/PPUtils.hpp"
+#include "../shared/Main.hpp"
+#include "../shared/PPUtils.hpp"
 #include <thread>
 
 CURL *curl;
@@ -13,11 +13,8 @@ extern "C" void setup(ModInfo& info) {
 
 extern "C" void load() {
     il2cpp_functions::Init();
- 
     curl_global_init(CURL_GLOBAL_DEFAULT);
     auto curl = curl_easy_init();
-
     std::thread thread(PPDownloader_WebRequest);
-
     thread.detach();
 }
