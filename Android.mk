@@ -26,8 +26,8 @@ include $(PREBUILT_SHARED_LIBRARY)
 #cURL prebuilt
 include $(CLEAR_VARS)
 LOCAL_MODULE := curl-prebuilt
-LOCAL_EXPORT_C_INCLUDES := include/Curl
-LOCAL_SRC_FILES := include/libcurl.a
+LOCAL_EXPORT_C_INCLUDES := shared/Curl
+LOCAL_SRC_FILES := shared/libcurl.a
 include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
@@ -35,14 +35,13 @@ LOCAL_MODULE := PPUtils
 LOCAL_SRC_FILES += $(call rwildcard,src/,*.cpp)
 LOCAL_SRC_FILES += $(call rwildcard,extern/beatsaber-hook/src/inline-hook,*.cpp)
 LOCAL_SRC_FILES += $(call rwildcard,extern/beatsaber-hook/src/inline-hook,*.c)	
-COMMON_CFLAGS := -Werror -DANDROID 
-LOCAL_LDLIBS := -lz -llog -Wl,-s
 LOCAL_SHARED_LIBRARIES += modloader
 LOCAL_SHARED_LIBRARIES += beatsaber-hook_0_7_1
 LOCAL_SHARED_LIBRARIES += codegen_0_2_6
-LOCAL_STATIC_LIBRARIES := curl-prebuilt 
-LOCAL_LDLIBS += -llog
-LOCAL_CFLAGS += -I'c:/Program Files/Unity/Hub/Editor/2019.3.1f1/Editor/Data/il2cpp/libil2cpp' -DID='"PPUtils"' -DVERSION='"0.1.0"' -I'./shared' -I'./extern' -I'./extern/modloader' -I'./extern/codegen/include' -I'./include/Curl/include' -I'./include'
+LOCAL_LDLIBS += -lz -llog -Wl,-s -llog
+LOCAL_CFLAGS += -I'c:/Program Files/Unity/Hub/Editor/2019.3.1f1/Editor/Data/il2cpp/libil2cpp' -DID='"PPUtils"' -DVERSION='"0.1.0"' -I'./shared' -I'./extern' -I'./extern/modloader' -I'./extern/codegen/include' -I'./include/Curl/include'
 LOCAL_CPPFLAGS += -std=c++2a
-LOCAL_C_INCLUDES += ./include ./src
+LOCAL_C_INCLUDES += ./shared ./src
+COMMON_CFLAGS := -Werror -DANDROID 
+LOCAL_STATIC_LIBRARIES := curl-prebuilt 
 include $(BUILD_SHARED_LIBRARY)

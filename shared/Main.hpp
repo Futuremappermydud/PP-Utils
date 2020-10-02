@@ -24,8 +24,8 @@
 #include <iomanip>
 #include <sstream>
 
-#include "../include/Curl/include/curl/curl.h"
-#include "../include/Curl/include/curl/easy.h"
+#include "../shared/Curl/include/curl/curl.h"
+#include "../shared/Curl/include/curl/easy.h"
 
 extern CURL *curl;
 extern CURLcode res;

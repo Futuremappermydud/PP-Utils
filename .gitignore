@@ -36,6 +36,7 @@
 !.vscode/tasks.json
 
 # NDK stuff
+[Ee]xtern/
 out/
 [Ll]ib/
 [Ll]ibs/
@@ -43,3 +44,4 @@ out/
 [Oo]bjs/
 ndkpath.txt
 *.zip
+*.backup
