@@ -1,0 +1,19 @@
+{
+  "sharedDir": "shared",
+  "dependenciesDir": "extern",
+  "info": {
+    "name": "PPUtils",
+    "id": "PPUtils",
+    "version": "0.1.0",
+    "url": null,
+    "additionalData": {}
+  },
+  "dependencies": [
+    {
+      "id": "codegen",
+      "versionRange": "^0.2.6",
+      "additionalData": {}
+    }
+  ],
+  "additionalData": {}
+}
